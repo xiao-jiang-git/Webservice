@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://wsdl" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://wsdl" xmlns:intf="http://wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://wsdl" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="did" type="xsd:string"/>
+   <element name="executeReturn" type="xsd:string"/>
+   <element name="executeReturn1" type="xsd:string"/>
+   <element name="getResultReturn" type="xsd:string"/>
+   <element name="result" type="xsd:string"/>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getResultRequest">
+
+   </wsdl:message>
+
+   <wsdl:message name="setResultResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="executeRequest1">
+
+   </wsdl:message>
+
+   <wsdl:message name="executeResponse1">
+
+      <wsdl:part element="impl:executeReturn1" name="executeReturn"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="setResultRequest">
+
+      <wsdl:part element="impl:result" name="result"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="executeRequest">
+
+      <wsdl:part element="impl:did" name="did"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="executeResponse">
+
+      <wsdl:part element="impl:executeReturn" name="executeReturn"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="getResultResponse">
+
+      <wsdl:part element="impl:getResultReturn" name="getResultReturn"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="getData">
+
+      <wsdl:operation name="execute" parameterOrder="did">
+
+         <wsdl:input message="impl:executeRequest" name="executeRequest"/>
+
+         <wsdl:output message="impl:executeResponse" name="executeResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="execute">
+
+         <wsdl:input message="impl:executeRequest1" name="executeRequest1"/>
+
+         <wsdl:output message="impl:executeResponse1" name="executeResponse1"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getResult">
+
+         <wsdl:input message="impl:getResultRequest" name="getResultRequest"/>
+
+         <wsdl:output message="impl:getResultResponse" name="getResultResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setResult" parameterOrder="result">
+
+         <wsdl:input message="impl:setResultRequest" name="setResultRequest"/>
+
+         <wsdl:output message="impl:setResultResponse" name="setResultResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="getDataSoapBinding" type="impl:getData">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="execute">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="executeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="executeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="execute">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="executeRequest1">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="executeResponse1">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getResult">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getResultRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getResultResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="setResult">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="setResultRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="setResultResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="getDataService">
+
+      <wsdl:port binding="impl:getDataSoapBinding" name="getData">
+
+         <wsdlsoap:address location="http://localhost:8083//services/wsdl/getData"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
